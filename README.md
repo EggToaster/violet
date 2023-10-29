@@ -1,7 +1,7 @@
 # violet
 package manager for ComputerCraft
 
-#FAQ
+# FAQ
 Q: how to make repositories?
 A: https://cdn.hatekin.com/craftos/violet/violetrepo/ here is example. version at info.lua are minimum version required for violet
 
