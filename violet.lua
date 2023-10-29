@@ -48,7 +48,7 @@ local install = function(pkname,repo)
 			wget(repourl.."packages/"..pkname.."/pkgdata/"..fl,"/pkgdata/"..fl)
 		end
 	end
-	os.run({},temp.."install.lua")
+	require(temp.."install")
 	fs.delete(temp)
 	wget(repourl.."packages/"..pkname.."/uninstall.lua","/violet/uninstall/"..pkname..".lua")
 	print("Installed")
@@ -56,7 +56,7 @@ local install = function(pkname,repo)
 	pkginlist.writeLine(pkname)
 	wget(repourl.."packages/"..pkname.."/info.lua","/violet/info/"..pkname..".lua")
 	if fs.exists("/violet/runafterinstall.lua") then
-		os.run({},"/violet/runafterinstall.lua")
+		require("/violet/runafterinstall")
 	end
 end
 if args[1]=="update" then
@@ -247,7 +247,7 @@ if args[1]=="remove" then
 		end
 		if y and somethingentered then
 			print("Removing")
-			os.run({},"/violet/uninstall/"..args[2]..".lua")
+			require("/violet/uninstall/"..args[2])
 			fs.delete("/violet/uninstall/"..args[2]..".lua")
 			local pkinfo = require("/violet/info/"..args[2])
 			if #pkinfo.file.bin ~= 0 then
