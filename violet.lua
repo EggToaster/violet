@@ -1,5 +1,5 @@
 local args={...}
-local version = 1
+local version = 1.01
 fs.makeDir("/violet/")
 fs.makeDir("/bin/")
 fs.makeDir("/lib/")
